@@ -50,7 +50,7 @@ namespace df_for_windows
                 case "-t":
                     var path = GetPath(args);
                     OutputToFile(analyzed, path);
-                    break;
+                    return;
 
                 // その他の動作タイプ
                 default:
@@ -60,8 +60,9 @@ namespace df_for_windows
                     break;
             }
 
-            //Console.Write("ドライブ情報の解析が完了しました。キー入力で終了します。");
-            //Console.ReadLine();
+            Console.WriteLine();
+            Console.Write("ドライブ情報の解析が完了しました。キー入力で終了します。");
+            Console.ReadLine();
         }
 
         /// <summary>
