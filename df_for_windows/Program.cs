@@ -41,16 +41,23 @@ namespace df_for_windows
 
             switch (type)
             {
+                // コンソール出力
                 case "-c":
                     OutputToConsole(analyzed);
                     break;
 
+                // ファイル出力
                 case "-t":
                     var path = GetPath(args);
                     OutputToFile(analyzed, path);
                     break;
 
-                default: new ArgumentException("無効な引数です。"); break;
+                // その他の動作タイプ
+                default:
+                    var ex = new ArgumentException(string.Format("無効な引数です -> {0}", string.Join(" ", args)));
+                    Console.WriteLine(ex.Message);
+                    Console.Read();
+                    break;
             }
 
             //Console.Write("ドライブ情報の解析が完了しました。キー入力で終了します。");
